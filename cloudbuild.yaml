@@ -1,8 +1,8 @@
 steps:
-  - name: node:16-alpine # [A]
+  - name: node:16 # [A]
     entrypoint: npm
     args: ["install"]
-  - name: node:16-alpine # [B]
+  - name: node:16 # [B]
     entrypoint: npm
     args: ["run", "build"]
     env:
