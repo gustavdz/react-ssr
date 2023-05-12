@@ -8,7 +8,7 @@ steps:
     env:
       - "NODE_ENV=production"
   - name: gcr.io/cloud-builders/gsutil # [C]
-    args: ["-m", "rsync", "-r", "-c", "-d", "./dist", "gs://react-ssr-test"]
+    args: ["-m", "rsync", "-r", "-c", "-d", "./dist", "gs://react-ssr-test/dist"]
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk" # [D]
     entrypoint: "bash"
     args: ["-c", "gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy"]
