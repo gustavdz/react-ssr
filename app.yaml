@@ -1,6 +1,6 @@
 # ./app.yaml
 
-runtime: nodejs16
+runtime: nodejs16-alpine
 
 env_variables:
   NODE_ENV: "production"
