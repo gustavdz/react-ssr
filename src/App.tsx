@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { Switch } from "@talo-code/talo-ui";
@@ -32,6 +32,7 @@ function App() {
         onChecked={() => {
           return;
         }}
+        checked={true}
       />
     </div>
   );
