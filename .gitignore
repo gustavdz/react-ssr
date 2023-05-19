@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.env
+.env.local
+.env.dev
+.env.development
+.env.test
+.env.prod
+.env.production
+.firebase

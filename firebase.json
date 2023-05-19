@@ -1,0 +1,19 @@
+{
+  "functions": [
+    {
+      "runtime": "nodejs16",
+      "source": "functions",
+      "ignore": ["node_modules", ".git", "firebase-debug.log", "firebase-debug.*.log"]
+    }
+  ],
+  "hosting": {
+    "public": "dist/client",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "webApi"
+      }
+    ]
+  }
+}

@@ -6,7 +6,7 @@
   "main": "./server.js",
   "scripts": {
     "dev": "node server",
-    "build": "npm run build:client && npm run build:server && cp -r dist functions && cp package.json functions && cp .env.production functions/.env && cd functions && npm install",
+    "build": "npm run build:client && npm run build:server && cp -r dist functions && cp package.json functions && cd functions && npm install",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
     "preview": "cross-env NODE_ENV=production node server",

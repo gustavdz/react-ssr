@@ -1,6 +1,9 @@
-import fs from "node:fs/promises";
+import functions from "firebase-functions";
+import * as fs from "node:fs/promises";
 import express from "express";
-
+import dotenv from "dotenv";
+dotenv.config();
+console.log("env", process.env.NODE_ENV);
 // Constants
 const isProduction = process.env.NODE_ENV === "production";
 const port = process.env.PORT || 5173;
@@ -31,7 +34,7 @@ if (!isProduction) {
 }
 
 // Serve HTML
-app.use("*", async (req, res) => {
+app.use("**", async (req, res) => {
   try {
     const url = req.originalUrl.replace(base, "");
 
@@ -62,7 +65,11 @@ app.use("*", async (req, res) => {
   }
 });
 
-// Start http server
-app.listen(port, () => {
-  console.log(`Server started at http://localhost:${port}`);
-});
+if (!isProduction) {
+  // Start http server
+  app.listen(port, () => {
+    console.log(`Server started at http://localhost:${port}`);
+  });
+}
+
+export const ssr = functions.https.onRequest(app);
